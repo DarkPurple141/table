@@ -1,0 +1,35 @@
+{
+  "name": "@notatlaskit/table",
+  "version": "0.0.0",
+  "description": "POC composable table component",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [
+    "react",
+    "component"
+  ],
+  "author": "Alex Hinds",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/react": "^6.3.4",
+    "babel-loader": "^8.2.2",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@atlaskit/checkbox": "^12.2.0",
+    "@atlaskit/css-reset": "^6.0.5",
+    "@emotion/react": "^11.4.0",
+    "styled-components": "^5.3.0"
+  }
+}

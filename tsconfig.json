@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "jsx": "preserve",
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+  },
+  "files": ["src/index.ts"]
+}
