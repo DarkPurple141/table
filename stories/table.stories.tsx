@@ -6,7 +6,7 @@ import { presidents } from './data'
 /**
  * Primary UI component for user interaction
  */
-export const BasicExample = ({ isSelectable }) => {
+export const CompositionExample = ({ isSelectable }) => {
   return (
     <Table numRows={presidents.length} isSelectable={isSelectable}>
       <THead>
@@ -29,7 +29,7 @@ export const BasicExample = ({ isSelectable }) => {
 
 export default {
   title: 'Table',
-  component: BasicExample,
+  component: CompositionExample,
   argTypes: {
     isSelectable: {
       type: { name: 'boolean', required: false },
