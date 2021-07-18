@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -s public"
   },
   "keywords": [
     "react",
@@ -20,14 +20,25 @@
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
     "@storybook/react": "^6.3.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
     "babel-loader": "^8.2.2",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.2",
-    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "react": "^17.0.2",
     "@atlaskit/checkbox": "^12.2.0",
+    "@atlaskit/theme": "^11.3.0",
     "@atlaskit/css-reset": "^6.0.5",
     "@emotion/react": "^11.4.0",
     "styled-components": "^5.3.0"

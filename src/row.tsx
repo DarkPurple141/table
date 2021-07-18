@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import { createContext, FC, useState } from 'react';
-import { css } from '@emotion/react';
-import { B500, B50 } from '@atlaskit/theme/colors';
-import { useTable } from './table';
-import Cell from './cell';
-import Checkbox from '@atlaskit/checkbox';
+import { createContext, FC, useState } from 'react'
+import { css } from '@emotion/react'
+import { B500, B50 } from '@atlaskit/theme/colors'
+import Checkbox from '@atlaskit/checkbox'
+import { useTable } from './table'
+import Cell from './cell'
 
 const styles = css({
   border: 'none',
   '&:hover': {
     backgroundColor: '#f8f8f8',
   },
-});
+})
 
 const selectableStyles = css({
   '&:hover': {
@@ -20,13 +20,13 @@ const selectableStyles = css({
   '&[aria-pressed="true"]': {
     backgroundColor: B50,
   },
-});
+})
 
-const RowContext = createContext({ isSelected: false });
+const RowContext = createContext({ isSelected: false })
 
 const Row: FC = ({ children, ...props }) => {
-  const table = useTable();
-  const [isSelected, setIsSelected] = useState(false);
+  const table = useTable()
+  const [isSelected, setIsSelected] = useState(false)
   return (
     <RowContext.Provider value={{ isSelected }}>
       <tr
@@ -45,7 +45,7 @@ const Row: FC = ({ children, ...props }) => {
         {children}
       </tr>
     </RowContext.Provider>
-  );
-};
+  )
+}
 
-export default Row;
+export default Row

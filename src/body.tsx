@@ -1,19 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import { createContext, ComponentProps } from 'react';
-import { css } from '@emotion/react';
-import { B500 } from '@atlaskit/theme/colors';
+import { createContext, ReactElement } from 'react'
 
 type BodyProps<T> =
   | {
-      rows: T[];
-      children: (row: T) => React.ReactElement;
+      rows: T[]
+      // eslint-disable-next-line no-unused-vars
+      children: (row: T) => ReactElement
     }
   | {
-      rows?: never;
-      children: React.ReactElement[] | React.ReactElement;
-    };
+      rows?: never
+      children: ReactElement[] | ReactElement
+    }
 
-const RowContext = createContext({});
+const RowContext = createContext({})
 
 function Body<ObjectType>({ rows, children }: BodyProps<ObjectType>) {
   return typeof children === 'function' ? (
@@ -22,7 +21,7 @@ function Body<ObjectType>({ rows, children }: BodyProps<ObjectType>) {
     </RowContext.Provider>
   ) : (
     <tbody>{children}</tbody>
-  );
+  )
 }
 
-export default Body;
+export default Body

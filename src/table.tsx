@@ -1,23 +1,21 @@
 /** @jsxImportSource @emotion/react */
-import { createContext, FC, useContext } from 'react';
-import { css } from '@emotion/react';
+import { createContext, FC, useContext } from 'react'
+import { css } from '@emotion/react'
 
 const styles = css({
   padding: 8,
   borderRadius: '3px',
   borderBottom: '2px solid #DFE1E6',
-});
+})
 
-export const TableContext = createContext({ isSelectable: false });
+export const TableContext = createContext({ isSelectable: false })
 
-export const useTable = () => {
-  return useContext(TableContext)
-}
+export const useTable = () => useContext(TableContext)
 
 const Table: FC<{ isSelectable?: boolean }> = ({ children, isSelectable }) => (
-  <TableContext.Provider value={{ isSelectable}}>
+  <TableContext.Provider value={{ isSelectable }}>
     <table css={styles}>{children}</table>
   </TableContext.Provider>
-);
+)
 
-export default Table;
+export default Table
