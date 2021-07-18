@@ -1,5 +1,0 @@
-export { default } from './table'
-export { default as TBody } from './body'
-export { default as Row } from './row'
-export { default as Cell } from './cell'
-export { default as HeadCell, THead } from './head-cell'
