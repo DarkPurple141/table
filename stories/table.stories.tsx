@@ -8,7 +8,7 @@ import { presidents } from './data'
  */
 export const BasicExample = ({ isSelectable }) => {
   return (
-    <Table isSelectable={isSelectable}>
+    <Table numRows={presidents.length} isSelectable={isSelectable}>
       <THead>
         <HeadCell>Name</HeadCell>
         <HeadCell>Party</HeadCell>
