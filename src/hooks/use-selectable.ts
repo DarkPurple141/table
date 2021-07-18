@@ -13,16 +13,17 @@ type Action =
   | { type: 'set_root'; value: boolean }
   | { type: 'failure'; error: string }
 
-function reducer({ checked, rootChecked }: State, action: Action) {
+function reducer({ checked, rootChecked, anyChecked }: State, action: Action) {
   switch (action.type) {
     case 'set_single': {
-      const updated = checked.map((status, i) =>
-        i === action.payload.id ? action.payload.value : status
-      )
+      const { value, id } = action.payload
+
+      const updated = checked.map((status, i) => (i === id ? value : status))
+
       return {
         checked: updated,
-        rootChecked,
-        anyChecked: updated.some(Boolean),
+        rootChecked: value && rootChecked,
+        anyChecked: anyChecked || value,
       }
     }
     case 'set_root':
@@ -43,8 +44,8 @@ const initialiseState = (numCells: number) => {
   }
 }
 
-function useCheckableTable(cells: number) {
+function useSelectable(cells: number) {
   return useReducer(reducer, initialiseState(cells))
 }
 
-export default useCheckableTable
+export default useSelectable

@@ -1,6 +1,6 @@
 import { useContext, createContext, FC } from 'react'
 
-import useCheckboxReducer from './checkbox-reducer'
+import useCheckboxReducer from './use-selectable'
 
 const CheckboxContext = createContext<ReturnType<typeof useCheckboxReducer>>([
   { checked: [], rootChecked: false, anyChecked: false },

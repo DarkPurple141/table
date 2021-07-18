@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { FC } from 'react'
+import type { FC } from 'react'
 import { css } from '@emotion/react'
 import { B500, B50 } from '@atlaskit/theme/colors'
-import Checkbox from '@atlaskit/checkbox'
-import { useTable } from './table'
-import Cell from './cell'
+import SelectableCell from './selectable-cell'
+import { useTable } from './hooks/use-table'
 import { useCheckbox } from './hooks/checkbox-provider'
 
 const styles = css({
@@ -26,32 +25,22 @@ const selectableStyles = css({
 })
 
 export type RowProps = {
+  testId?: string
   idx?: number
 }
 
-const Row: FC<RowProps> = ({ children, idx, ...props }) => {
+const Row: FC<RowProps> = ({ children, idx, testId, ...props }) => {
   const table = useTable()
-  const [state, dispatch] = useCheckbox()
+  const [state] = useCheckbox()
   const isChecked = state.checked[idx] || state.rootChecked
   return (
     <tr
       aria-pressed={isChecked}
+      data-testid={testId}
       css={[styles, table.isSelectable && selectableStyles]}
       {...props}
     >
-      {table.isSelectable && (
-        <Cell>
-          <Checkbox
-            isChecked={isChecked}
-            onChange={(e) =>
-              dispatch({
-                type: 'set_single',
-                payload: { value: e.currentTarget.checked, id: idx },
-              })
-            }
-          />
-        </Cell>
-      )}
+      {table.isSelectable && <SelectableCell idx={idx} />}
       {children}
     </tr>
   )

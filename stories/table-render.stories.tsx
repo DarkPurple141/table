@@ -1,5 +1,5 @@
 import '@atlaskit/css-reset'
-import Table, { Row, Cell, TBody, HeadCell, THead } from '../src'
+import Table, { Row, Cell, TBody, THead, HeadCell } from '../src'
 
 import { presidents } from './data'
 
@@ -10,7 +10,7 @@ type President = typeof presidents[number]
  */
 export const RenderProp = ({ isSelectable }) => {
   return (
-    <Table numRows={presidents.length} isSelectable={isSelectable}>
+    <Table<President> numRows={presidents.length} isSelectable={isSelectable}>
       <THead>
         <HeadCell>Name</HeadCell>
         <HeadCell>Party</HeadCell>
@@ -18,7 +18,7 @@ export const RenderProp = ({ isSelectable }) => {
       </THead>
       <TBody<President> rows={presidents}>
         {(row) => (
-          <Row key={row.id}>
+          <Row key={row.id} {...row}>
             <Cell>{row.nm}</Cell>
             <Cell>{row.pp}</Cell>
             <Cell>{row.tm}</Cell>

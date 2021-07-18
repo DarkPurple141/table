@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { FC } from 'react'
 import Checkbox from '@atlaskit/checkbox'
-import { useTable } from './table'
 import { useCheckbox } from './hooks/checkbox-provider'
-import HeadCell from './head-cell'
+import { useTable } from './hooks/use-table'
+import { HeadCell } from '.'
 
 const THead: FC = ({ children, ...props }) => {
   const table = useTable()

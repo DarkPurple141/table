@@ -4,6 +4,17 @@ import { css } from '@emotion/react'
 
 const padding = css({ padding: '4px 8px' })
 
-const Cell: FC = (props) => <td css={padding} {...props} />
+export interface CellProps {
+  testId?: string
+}
+
+/**
+ * __Cell__
+ *
+ * Basic Cell element
+ */
+const Cell: FC<CellProps> = ({ testId, ...props }) => (
+  <td data-testid={testId} css={padding} {...props} />
+)
 
 export default Cell

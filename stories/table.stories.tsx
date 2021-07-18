@@ -1,5 +1,5 @@
 import '@atlaskit/css-reset'
-import Table, { Row, Cell, TBody, HeadCell, THead } from '../src'
+import Table, { Row, Cell, TBody, THead, HeadCell } from '../src'
 
 import { presidents } from './data'
 
