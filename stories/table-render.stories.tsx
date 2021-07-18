@@ -1,8 +1,8 @@
-import '@atlaskit/css-reset';
-import Table, { Row, Cell, TBody, HeadCell } from '../src';
-import { THead } from '../src/head-cell';
+import '@atlaskit/css-reset'
+import Table, { Row, Cell, TBody, HeadCell } from '../src'
+import { THead } from '../src/head-cell'
 
-import { presidents } from './data';
+import { presidents } from './data'
 
 type President = typeof presidents[number]
 
@@ -18,7 +18,7 @@ export const RenderProp = ({ isSelectable }) => {
         <HeadCell>Year</HeadCell>
       </THead>
       <TBody<President> rows={presidents}>
-        {row => (
+        {(row) => (
           <Row key={row.id}>
             <Cell>{row.nm}</Cell>
             <Cell>{row.pp}</Cell>
@@ -27,16 +27,16 @@ export const RenderProp = ({ isSelectable }) => {
         )}
       </TBody>
     </Table>
-  );
-};
+  )
+}
 
 export default {
   title: 'Table',
   component: RenderProp,
   argTypes: {
     isSelectable: {
-      type: { name: 'boolean', required: false, },
+      type: { name: 'boolean', required: false },
       defaultValue: false,
-    }
-  }
-};
+    },
+  },
+}

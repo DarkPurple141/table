@@ -1,12 +1,12 @@
-import '@atlaskit/css-reset';
-import Table, { Row, Cell, TBody, HeadCell, THead } from '../src';
+import '@atlaskit/css-reset'
+import Table, { Row, Cell, TBody, HeadCell, THead } from '../src'
 
-import { presidents } from './data';
+import { presidents } from './data'
 
 /**
  * Primary UI component for user interaction
  */
-export const BasicExample =  ({ isSelectable }) => {
+export const BasicExample = ({ isSelectable }) => {
   return (
     <Table isSelectable={isSelectable}>
       <THead>
@@ -24,16 +24,16 @@ export const BasicExample =  ({ isSelectable }) => {
         ))}
       </TBody>
     </Table>
-  );
-};
+  )
+}
 
 export default {
   title: 'Table',
   component: BasicExample,
   argTypes: {
     isSelectable: {
-      type: { name: 'boolean', required: false, },
+      type: { name: 'boolean', required: false },
       defaultValue: false,
-    }
-  }
-};
+    },
+  },
+}

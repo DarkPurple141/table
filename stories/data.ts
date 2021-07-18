@@ -263,4 +263,6 @@ export const presidents = [
     pp: 'Democrat',
     tm: '2009-2016',
   },
-];
+]
+
+export default presidents
