@@ -25,4 +25,13 @@ module.exports = {
     'import/extensions': 0,
     'import/no-unresolved': 0,
   },
+  overrides: [
+    {
+      files: '*/**/*.spec.*',
+      plugins: ['jest'],
+      env: {
+        'jest/globals': true,
+      },
+    },
+  ],
 }

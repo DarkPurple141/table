@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "description": "POC composable table component",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:DarkPurple141/table.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build": "build-storybook -o public"
   },
@@ -20,6 +24,8 @@
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
     "@storybook/react": "^6.3.4",
+    "@testing-library/react-hooks": "^7.0.1",
+    "@types/jest": "^26.0.24",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "babel-loader": "^8.2.2",
@@ -27,12 +33,15 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "react-dom": "^17.0.2",
+    "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"
   },
   "dependencies": {

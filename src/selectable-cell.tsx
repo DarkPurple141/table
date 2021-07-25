@@ -9,15 +9,11 @@ export type SelectableCellProps = {
 }
 
 const SelectableCell: FC<SelectableCellProps> = ({ idx }) => {
-  const [state, dispatch] = useCheckbox()
-  const isChecked = state.checked[idx] || state.rootChecked
+  const [state, { toggleSelection }] = useCheckbox()
+  const isChecked = state.checked[idx] || state.allChecked
   const onChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
-    (e) =>
-      dispatch({
-        type: 'set_single',
-        payload: { value: e.currentTarget.checked, id: idx },
-      }),
-    [dispatch, idx]
+    () => toggleSelection(idx),
+    [idx]
   )
 
   return (

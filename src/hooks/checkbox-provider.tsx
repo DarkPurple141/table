@@ -3,8 +3,8 @@ import { useContext, createContext, FC } from 'react'
 import useCheckboxReducer from './use-selectable'
 
 const CheckboxContext = createContext<ReturnType<typeof useCheckboxReducer>>([
-  { checked: [], rootChecked: false, anyChecked: false },
-  () => {},
+  { checked: [], allChecked: false, anyChecked: false },
+  {} as any,
 ])
 
 const CheckboxProvider: FC<{ cells: number }> = ({ cells, children }) => {

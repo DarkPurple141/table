@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import type { FC } from 'react'
+import { FC, memo } from 'react'
 import { css } from '@emotion/react'
-import { B500, B50 } from '@atlaskit/theme/colors'
+import { B300, B50 } from '@atlaskit/theme/colors'
 import SelectableCell from './selectable-cell'
 import { useTable } from './hooks/use-table'
 import { useCheckbox } from './hooks/checkbox-provider'
@@ -17,10 +17,14 @@ const styles = css({
 
 const selectableStyles = css({
   '&:hover': {
-    boxShadow: `0 0 0 0px #f8f8f8, -3px 0 0 0px ${B500}`,
+    boxShadow: `0 0 0 0px #f8f8f8, -3px 0 0 0px ${B300}`,
   },
   '&[aria-pressed="true"]': {
-    backgroundColor: B50,
+    backgroundColor: '#DEEBFF88',
+
+    '&:hover': {
+      backgroundColor: B50,
+    },
   },
 })
 
@@ -29,10 +33,10 @@ export type RowProps = {
   idx?: number
 }
 
-const Row: FC<RowProps> = ({ children, idx, testId, ...props }) => {
+const Row: FC<RowProps> = memo(({ children, idx, testId, ...props }) => {
   const table = useTable()
   const [state] = useCheckbox()
-  const isChecked = state.checked[idx] || state.rootChecked
+  const isChecked = state.checked[idx] || state.allChecked
   return (
     <tr
       aria-pressed={isChecked}
@@ -44,6 +48,6 @@ const Row: FC<RowProps> = ({ children, idx, testId, ...props }) => {
       {children}
     </tr>
   )
-}
+})
 
 export default Row

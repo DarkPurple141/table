@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { ReactElement, cloneElement, Children } from 'react'
+import { useTable } from './hooks/use-table'
 
 type BodyProps<T> =
   | {
@@ -13,8 +14,13 @@ type BodyProps<T> =
     }
 
 function Body<ObjectType>({ rows, children }: BodyProps<ObjectType>) {
+  const { sortKey } = useTable()
   return typeof children === 'function' ? (
-    <tbody>{rows.map((row, idx) => children({ ...row, idx }))}</tbody>
+    <tbody>
+      {rows
+        .sort((rowA, rowB) => (rowA[sortKey] < rowB[sortKey] ? -1 : 1))
+        .map((row, idx) => children({ ...row, idx }))}
+    </tbody>
   ) : (
     <tbody>
       {Children.map(children, (row, idx) => cloneElement(row, { idx }))}
