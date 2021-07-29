@@ -12,7 +12,7 @@ describe('useSelectable', () => {
     expect(state.checked).toHaveLength(10)
   })
 
-  it('should have correctly update a selection', () => {
+  it('should correctly update individual selection', () => {
     const { result } = renderHook(() => useSelectable(10))
 
     act(() => {
@@ -42,7 +42,7 @@ describe('useSelectable', () => {
     expect(state.checked[0]).toBe(true)
   })
 
-  it('root select all works', () => {
+  it('root unselect all works', () => {
     const { result } = renderHook(() => useSelectable(10))
 
     act(() => {
