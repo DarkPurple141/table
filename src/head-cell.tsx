@@ -1,12 +1,19 @@
 /* eslint-disable no-unused-vars */
 /** @jsxImportSource @emotion/react */
-import { FC } from 'react'
+import type { FC, CSSProperties } from 'react'
 import { css } from '@emotion/react'
+import { token } from '@atlaskit/tokens'
+import { varBorderWidth } from './constants'
 
-const headCellStyles = css({ color: '#5e6c84' })
+const headCellStyles = css({
+  border: `var(${varBorderWidth}) solid ${token('color.border.neutral')}`,
+  verticalAlign: 'middle',
+  color: token('color.text.mediumEmphasis', '#5e6c84'),
+})
 export interface CellProps {
   testId?: string
   onClick?: (...args: any[]) => void
+  style?: CSSProperties
 }
 
 /**

@@ -1,13 +1,25 @@
 /** @jsxImportSource @emotion/react */
+import { token } from '@atlaskit/tokens'
 import { css } from '@emotion/react'
-import { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import CheckboxProvider from './hooks/checkbox-provider'
 import { TableContext } from './hooks/use-table'
+import { varBorderWidth } from './constants'
 
 const styles = css({
-  padding: 8,
-  borderRadius: '3px',
-  borderBottom: '2px solid #DFE1E6',
+  borderCollapse: 'separate',
+  borderRadius: 3,
+  borderSpacing: 0,
+  border: `var(${varBorderWidth}) solid ${token(
+    'color.border.neutral',
+    '#DFE1E6'
+  )}`,
+  'thead, tbody, tfooter': {
+    border: 'none',
+  },
+  'th, td': {
+    padding: '4px 8px',
+  },
 })
 
 export type TableProps<DataType extends {} = {}> = {
@@ -25,7 +37,7 @@ function Table<ObjectType>({
 }: TableProps<ObjectType>) {
   return (
     <TableContext.Provider value={{ isSelectable, sortKey }}>
-      <table css={styles}>
+      <table style={{ [varBorderWidth]: '1px' } as CSSProperties} css={styles}>
         {isSelectable ? (
           <CheckboxProvider cells={numRows}>{children}</CheckboxProvider>
         ) : (

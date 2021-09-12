@@ -13,7 +13,7 @@ const THead: FC = ({ children, ...props }) => {
     <thead {...props}>
       <tr>
         {table.isSelectable && (
-          <HeadCell>
+          <HeadCell style={{ width: '24px' }}>
             <Checkbox
               onChange={isChecked ? removeAll : setAll}
               isChecked={isChecked}

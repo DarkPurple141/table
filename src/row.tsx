@@ -2,28 +2,32 @@
 import { FC, memo } from 'react'
 import { css } from '@emotion/react'
 import { B300, B50 } from '@atlaskit/theme/colors'
+import { token } from '@atlaskit/tokens'
 import SelectableCell from './selectable-cell'
 import { useTable } from './hooks/use-table'
 import { useCheckbox } from './hooks/checkbox-provider'
 
 const styles = css({
-  border: 'none',
   borderImageWidth: 0,
-  borderSpacing: 0,
   '&:hover': {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: token(
+      'color.background.transparentNeutral.hover',
+      '#EBECF0'
+    ),
   },
 })
 
 const selectableStyles = css({
   '&:hover': {
-    boxShadow: `0 0 0 0px #f8f8f8, -3px 0 0 0px ${B300}`,
+    boxShadow: `0 0 0 0px ${token(
+      'color.background.transparentNeutral.hover',
+      '#EBECF0'
+    )}, -3px 0 0 0px ${token('color.accent.boldBlue', B300)}`,
   },
   '&[aria-pressed="true"]': {
-    backgroundColor: '#DEEBFF88',
-
+    backgroundColor: token('color.background.selected.resting', B50),
     '&:hover': {
-      backgroundColor: B50,
+      backgroundColor: token('color.background.selected.hover', B50),
     },
   },
 })
