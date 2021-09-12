@@ -25,9 +25,9 @@ const selectableStyles = css({
     )}, -3px 0 0 0px ${token('color.accent.boldBlue', B300)}`,
   },
   '&[aria-pressed="true"]': {
-    backgroundColor: token('color.background.selected.resting', B50),
+    backgroundColor: token('color.background.selected.hover', B50),
     '&:hover': {
-      backgroundColor: token('color.background.selected.hover', B50),
+      backgroundColor: token('color.background.selected.pressed', B50),
     },
   },
 })
