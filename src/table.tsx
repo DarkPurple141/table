@@ -2,7 +2,7 @@
 import { token } from '@atlaskit/tokens'
 import { css } from '@emotion/react'
 import type { CSSProperties, ReactElement } from 'react'
-import CheckboxProvider from './hooks/checkbox-provider'
+import SelectionProvider from './hooks/selection-provider'
 import { TableContext } from './hooks/use-table'
 import { varBorderWidth } from './constants'
 
@@ -23,6 +23,8 @@ const styles = css({
 })
 
 export type TableProps<DataType extends {} = {}> = {
+  // eslint-disable-next-line no-unused-vars
+  onSelect?: (arg?: DataType) => void
   isSelectable?: boolean
   numRows: number
   sortKey?: keyof DataType
@@ -34,12 +36,13 @@ function Table<ObjectType>({
   isSelectable,
   sortKey,
   numRows,
+  onSelect,
 }: TableProps<ObjectType>) {
   return (
-    <TableContext.Provider value={{ isSelectable, sortKey }}>
+    <TableContext.Provider value={{ isSelectable, sortKey, onSelect }}>
       <table style={{ [varBorderWidth]: '1px' } as CSSProperties} css={styles}>
         {isSelectable ? (
-          <CheckboxProvider cells={numRows}>{children}</CheckboxProvider>
+          <SelectionProvider cells={numRows}>{children}</SelectionProvider>
         ) : (
           children
         )}

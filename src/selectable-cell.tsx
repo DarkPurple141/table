@@ -2,7 +2,7 @@
 import { ChangeEventHandler, FC, useCallback, memo } from 'react'
 import Checkbox from '@atlaskit/checkbox'
 import Cell from './cell'
-import { useCheckbox } from './hooks/checkbox-provider'
+import { useCheckbox } from './hooks/selection-provider'
 
 export type SelectableCellProps = {
   idx?: number

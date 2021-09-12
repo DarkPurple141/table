@@ -5,7 +5,7 @@ import { B300, B50 } from '@atlaskit/theme/colors'
 import { token } from '@atlaskit/tokens'
 import SelectableCell from './selectable-cell'
 import { useTable } from './hooks/use-table'
-import { useCheckbox } from './hooks/checkbox-provider'
+import { useCheckbox } from './hooks/selection-provider'
 
 const styles = css({
   borderImageWidth: 0,
@@ -25,9 +25,9 @@ const selectableStyles = css({
     )}, -3px 0 0 0px ${token('color.accent.boldBlue', B300)}`,
   },
   '&[aria-pressed="true"]': {
-    backgroundColor: token('color.background.selected.hover', B50),
+    backgroundColor: token('color.background.selected.resting', B50),
     '&:hover': {
-      backgroundColor: token('color.background.selected.pressed', B50),
+      backgroundColor: token('color.background.selected.hover', B50),
     },
   },
 })

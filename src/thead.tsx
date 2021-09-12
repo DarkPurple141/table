@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { FC } from 'react'
 import Checkbox from '@atlaskit/checkbox'
-import { useCheckbox } from './hooks/checkbox-provider'
+import { useCheckbox } from './hooks/selection-provider'
 import { useTable } from './hooks/use-table'
 import { HeadCell } from '.'
 
